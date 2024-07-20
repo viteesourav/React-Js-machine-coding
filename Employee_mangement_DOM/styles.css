@@ -1,0 +1,165 @@
+body {
+    font-family: sans-serif;
+    padding: 0 10px;
+    position: relative;
+  }
+  /* CSS Variables... */
+  :root {
+    --btn: #dbdbdb;
+    --btn-hover: #cacaca;
+    --item-bg: #f0f0f0;
+    --modal-bg: rgba(141, 141, 141, 0.541);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header > button {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--btn);
+    cursor: pointer;
+  }
+  
+  .header > button:hover {
+    background-color: var(--btn-hover);
+  }
+  
+  .employees {
+    display: flex;
+  }
+  
+  .employees > div {
+    border: 1px solid black;
+    overflow-y: scroll;
+    height: 300px;
+  }
+  
+  .employees__names {
+    width: 30%;
+  }
+  
+  .employees__info {
+    width: 70%;
+  }
+  
+  .employees__names,
+  .employees__info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .employees__names--title,
+  .employees__info--title {
+    padding-bottom: 10px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 4px;
+  }
+  
+  .employees__names--list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  
+  .employees__names--tag {
+    cursor: pointer;
+    padding: 5px 30px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--item-bg);
+    border-radius: 10px;
+  }
+  
+  .tagged,
+  .employees__names--tag:hover {
+    background-color: var(--btn);
+  }
+  
+  .employees__info--detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .employees__info--detail>img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .employees__info--heading {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 5px;
+    font-weight: 700;
+  }
+
+  .addEmployee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--modal-bg);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .addEmployee__frm {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px grey;
+  }
+  
+  .addEmployee__frm--name {
+    display: flex;
+    gap: 4px;
+  }
+
+  .addEmployee__frm input {
+    width: 70%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(256, 141, 141, 0.541);
+  }
+
+  .addEmployee__frm select {
+    width: 75%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(256, 141, 141, 0.541);
+  }
+
+
+  .addEmployee__frm > button {
+    padding: 5px 15px;
+    width: 60%;
+    background-color: var(--btn);
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .addEmployee__frm > button:hover {
+    background-color: var(--btn-hover);
+  }

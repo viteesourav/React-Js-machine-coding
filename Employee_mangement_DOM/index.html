@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Management</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1>Employee Management</h1>
+        <button class="addEmployee__btn">Add Employee</button>
+      </header>
+
+      <!-- Holds the Page to Display Employees List and Details -->
+      <div class="employees">
+        <div class="employees__names">
+          <span class="employees__names--title">Employee List</span>
+          <div class="employees__names--list"></div>
+        </div>
+        <div class="employees__info">
+          <span class="employees__info--title">Employee Info</span>
+          <div class="employees__info--detail"></div>
+        </div>
+      </div>
+
+      <!-- TODO: We need a Modal to Add New Employees -->
+       <div class="addEmployee">
+        <form class="addEmployee__frm">
+          <h2>Add Employee</h2>
+          <div class="addEmployee__frm--name">
+            <input 
+              type="text"
+              name="first_name"
+              placeholder="Enter FirstName"
+              required
+            >
+            <input 
+              type="text"
+              name="last_name"
+              placeholder="Enter LastName"
+              required
+            >
+          </div>
+          <input 
+            type="text"
+            name="imageUrl"
+            placeholder="Enter Profile Img (Optional)"
+          >
+          <input 
+            type="text"
+            name="job_title"
+            placeholder="Enter Job Title"
+            required
+          >
+          <input 
+            type="number"
+            name="age"
+            placeholder="Age"
+            required
+          >
+          <select name="gender" required>
+            <option value="male" selected>male</option>
+            <option value="female">female</option>
+          </select>
+          <input 
+            type="date"
+            name="dob"
+            placeholder="Enter Date Of Birth"
+            required
+          >
+          <button type="submit" class="addEmployee__frm--btnSubmit">
+            Add
+          </button>
+        </form>
+       </div>
+
+    </div>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./src/app.js" type="module"></script>
+  </body>
+</html>
