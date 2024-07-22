@@ -1,0 +1,32 @@
+### Learnings:
+
+1. While designing the HTML Structure --> Follow the BEM Approach.
+   -- eg: div with class [employee] --> H1 tag holds header text inside div class [employee__header] --> span inside h1 class [employee__header--title]
+   -- Why ? 
+      Increase Readibility of the code, and Maintaining hirearchy in defining styleSheets.
+
+   -- Make sure the File Structure is Proper.
+      -- Index.html Our HTML Structure should be outside.
+      -- Utils should hold any dummy Data we are using..
+      -- Src --> Will hold out app.js script and styleSheet (css).
+
+2. Basic CSS that we used -->  display, width, height, padding, margin, border etc...
+    -- Also inside :root { --bg-btn: #0fff}  --> This is how we decalre a CSS global property value..
+    -- how to use the variable: var(--bg-btn)
+
+3. In The Script,
+    -- Have used a IIFY [Immediatly Executed function] i.e This function is generally within (function () {}) (), --> executes Immediatly.
+    -- Why ? This keeps us to keep all our variables inside this bubble of IIFY.
+    -- NOTE: 
+        Always make sure You are giving the path proper while importing any Component or data...
+    -- Some Uses of DOM Manipulation using:
+       -- Document.querySelector(), document.createElement(), .append(), .setAttribute(), .classList.add()
+    -- How To handle Form data with DOM ?
+        -- To Get the data, Take the frmDOM and put it in new FormData()
+            -- FormData().entries --> Gives a List of [fieldName, FieldValue]
+            -- Use it as you want !
+        
+        -- How to set the Data back to Form ?
+            -- take the frmDOM.elements --> This holds all the input names and it's DOM reference.
+            -- Iterate the DataObj --> check if frmDOM.elements has it, update the frmDOM.elements[key].value. [NOTE: Check the value format it is ecpecting, especially in case of Date Field Input]
+            -- Once you do this, The Frm will hold the Values you have set.
