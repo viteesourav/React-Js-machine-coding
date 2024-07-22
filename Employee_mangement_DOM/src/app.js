@@ -81,35 +81,84 @@
 
     //Handle Opening and closing of the modal...
     addEmpBtn.addEventListener('click', (evt) => {
+      addEmpFrm.querySelector('button').innerHTML = "Add";
       addEmpModal.style.display = 'flex';
     })
 
     addEmpModal.addEventListener('click', (evt) => {
       if(evt.target.className == "addEmployee") {
         addEmpModal.style.display = 'none';
+        document.querySelector('.addEmployee__frm').reset();
       }
     })
 
     // Handle on submit of the form, Pass Form DOM directly to new FormData() to extract the data...
     addEmpFrm.addEventListener('submit', (evt) => {
-      evt.preventDefault();
+      evt.preventDefault();  //prevents default behavior of frm submit action...
 
+      //handle frmData with DOM and new FormData Object...
       const frmData = new FormData(addEmpFrm);
       const frmEntries = [...frmData.entries()];
-      let newEmpObj = {};
-      frmEntries.forEach(([key, value]) => {
-        newEmpObj[key] = value;
-      })
-      newEmpObj.employee_id = empData.length + 1;
-      if(!newEmpObj.imageUrl)
-        newEmpObj.imageUrl = "https://www.vhv.rs/dpng/d/426-4264903_user-avatar-png-picture-avatar-profile-dummy-transparent.png";
-      
-      empData = [newEmpObj, ...empData];
-      selectedEmpData = empData[0];
+
+      //First check if we are adding or Editiing....
+      if(addEmpFrm.querySelector('button').innerHTML === "Edit") {
+        //Modifying the entires in the selectedEmpData and Modifying the entries in the dataObj...
+        empData = empData.map(empObj => {
+          if(empObj.employee_id == selectedEmpData.employee_id) {
+            frmEntries.forEach(([key, value]) => {
+              if(empObj[key]) {
+                empObj[key] = value;
+              }
+            });
+            selectedEmpData = empObj;
+          }
+          return empObj;
+        })
+      } else {
+        let newEmpObj = {};
+        frmEntries.forEach(([key, value]) => {
+          newEmpObj[key] = value;
+        })
+        newEmpObj.employee_id = empData.length + 1;
+        if(!newEmpObj.imageUrl)
+          newEmpObj.imageUrl = "https://www.vhv.rs/dpng/d/426-4264903_user-avatar-png-picture-avatar-profile-dummy-transparent.png";
+        
+        empData = [newEmpObj, ...empData];
+        selectedEmpData = empData[0];
+      }
+     
       handleRenderPage();
+      addEmpModal.style.display = 'none'; //After adding new Data, hide the modal..
+      addEmpFrm.reset();  //Reset the frm DOM Node..
+    })
+
+    //TODO: Implementing an Edit functionality...
+    const btnEdit = document.querySelector('.employees__info--btnEdit');
+
+    btnEdit.addEventListener('click', () => {
       
-      addEmpModal.style.display = 'none';
-      addEmpFrm.reset(); 
+      //First lets bring the form DOM and create a Form Object...
+      console.log(selectedEmpData);
+      // console.log([...editFrmData], ...editFrmData.entries());
+      
+      //Lets try to set the data in the editFrmData FormObj based on selectedEmpData..
+      Object.entries(selectedEmpData).forEach(([key, value]) => {
+        if(addEmpFrm.elements[key]) {
+          if(key === 'dob') {
+            let formatDate = new Date(selectedEmpData[key]);
+            addEmpFrm.elements[key].value = `${formatDate.getFullYear()}-${(formatDate.getMonth() + 1) < 10 ? "0" + (formatDate.getMonth() + 1) : (formatDate.getMonth() + 1) }-${formatDate.getDate() < 10 ? "0"+formatDate.getDate() : formatDate.getDate()}`;
+          } else {
+            addEmpFrm.elements[key].value = selectedEmpData[key];
+          }
+        }
+      })
+
+      //Open the model...
+      addEmpModal.style.display = 'flex';
+
+      //Update the btn Text to edit...
+      addEmpFrm.querySelector('button').innerHTML = "Edit";
+
     })
 
   })();
