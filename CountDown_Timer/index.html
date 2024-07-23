@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/app.css">
+    <title>CountDown Timer</title>
+</head>
+    <body>
+        
+        <div class="container">
+            <span class="container__title">CountDown Timer</span>
+
+            <div class="container__label">
+                <p class="container__label--title">Hour</p>
+                <p class="container__label--title">Minutes</p>
+                <p class="container__label--title">Seconds</p>
+            </div>
+
+            <div class="container__inputFields">
+                <input 
+                    type="number"
+                    maxlength="2"
+                    onchange="this.value = this.value.slice(0, 2)"
+                    name="hours"
+                    placeholder="00"
+                    class="container__inputFields--time"
+                >
+                <p class="container__semicolon">:</p>
+                <input 
+                    type="number"
+                    maxlength="2"
+                    onchange="this.value = this.value.slice(0, 2)"
+                    name="hours"
+                    placeholder="00"
+                    class="container__inputFields--time"
+                >
+                <p class="container__semicolon">:</p>
+                <input 
+                    type="number"
+                    maxlength="2"
+                    onchange="this.value = this.value.slice(0, 2)"
+                    name="hours"
+                    placeholder="00"
+                    class="container__inputFields--time"
+                >
+            </div>
+
+            <div class="container__btn">
+                <button type="button" class="container__btn--start">Start</button>
+                <button type="button" class="container__btn--pause">Pause</button>
+                <button type="button" class="container__btn--reset">Reset</button>
+            </div>
+
+        </div>
+
+        <script src="./src/app.js"></script>
+    </body>
+</html>
