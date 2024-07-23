@@ -1,3 +1,19 @@
 ### Learnings:
 
-1. 
+1. We have created the HTML Structure, It's a clean approach, One big container, Holding small divs and span.
+    -- For Restricting Input fields from taking max of 2 length, onChage = "this.value = this.value.slice(0, 2)"
+    -- The above make sure you never exceeds more than 2 space.
+2. For CSS,
+    -- We have follwed the BEM convention of naming the class names for the Tags.
+    -- Mostly, we used the height, display and some basic property of font-size, border and outline.
+3. For Script,
+    -- IIFY handles the execution of the whole timer.
+    -- DOM Nodes of the targeted tags are fetched using their respective className --> using document.querySelector('');
+    -- The Timer is handled using setInterval --> This executes a function handleTime, every 1s. 
+    -- In HandleTimer,
+        -- We Update the min, sec and hours accordingly.
+        -- Logic added, First sec timer runs  till Zero, then it updates the min timer, when min timer tuns zero, it updates the hour timer.
+        -- For Setting value to input field using DOM Nodes --> min.value [min is the DOM instance for minute input field]
+    -- Logic Added for handling start and stop btn Visibility.
+        -- Also Logic Added to handle actions on start and stop click, including Rest.
+    -- Logic Added For distributing time if it exceeds 60 mins For seconds and minutes Input Fields.
