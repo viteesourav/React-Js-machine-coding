@@ -1,0 +1,35 @@
+### File Explorer Clone ###
+
+-- Designing the Folder Structure in React, Imp Notes:
+
+1. Remember to put everything under src folder. --> utils, components and others..
+2. Always First create the sampleData.js file, To have the data Structure of the response.
+3. In Components Folder, 
+    -- To manage multiple exports by default, Maintain a index.js that default exports all the Components.
+    -- Advantage:
+        -- Manage all the exports of the components at one place.
+        -- In the Parent Component, It looks clean while handling multiple components.
+4. It is totally Possible to Recursive call a component.
+    -- eg: Here, Inside Folder Component, we are again Calling the folder Component --> for Rendering the sub-Folders.
+    -- NOTE: The Prop structure should be same.
+
+
+-- CSS while handling the Folders..
+
+1. You can define css class as className = "Folder" for elements.
+    -- In index.css File you can define the Required CSS.
+    -- NOTE: Make cure index.css is linked to the app. i.e here in main.jsx it is linked.
+
+2. Faster way to define CSS property OR CSS based on some paramater.
+    -- use Style attribute for elements.
+    -- style: {{display: isShow ? 'block' : 'none', backgroudColor: 'grey', margin: '2px 5px'}}
+
+3. Imp difference between defining CSS with style attribute and in seperate folder..
+    -- In CSS, 
+        You use .classname to target the HTML element. --> also the properties text are a bit different
+        -- eg: backgroud-color: rgb(233, 233, 233); i.e You define all properties inside {...}
+    -- In Style:
+        You define the all properties with propertyNames as Camelcase: backgroundColor.
+        -- also the value has to be inside ".."
+        -- comma-seperated properties has to be defined. 
+    

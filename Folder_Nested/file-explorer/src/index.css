@@ -1,0 +1,51 @@
+.Folder {
+  display: flex;
+  width: 350px;
+  background-color: rgb(233, 233,233);
+  margin: 5px 2px;
+  padding: 5px 8px;
+  cursor: pointer;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Folder>span {
+  margin: 0 5px 2px 5px;
+}
+
+.File {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  margin: 5px 2px;
+  padding: 5px 8px;
+}
+
+.btnFolder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:200px;
+  gap: 5px;
+}
+
+.btnFolder button {
+  cursor: pointer;
+}
+
+.AddFileOrFolder {
+  margin-left: 25px;
+  display: flex;
+  gap: 3px;
+}
+
+.AddFileOrFolder > input {
+  width: 270px;
+  margin: 2px 0;
+  padding: 5px 2px; 
+}
+
+.remove__icon {
+  cursor: pointer;
+}

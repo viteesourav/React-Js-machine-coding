@@ -1,0 +1,3 @@
+//Once place to export each Component as {compA, compB and so on...} 
+//Manage the export of all the components at one place...
+export {default as Folder} from './Folder';
