@@ -1,6 +1,6 @@
 ### File Explorer Clone ###
 
--- Designing the Folder Structure in React, Imp Notes:
+** Designing the Folder Structure in React, Imp Notes:
 
 1. Remember to put everything under src folder. --> utils, components and others..
 2. Always First create the sampleData.js file, To have the data Structure of the response.
@@ -14,7 +14,7 @@
     -- NOTE: The Prop structure should be same.
 
 
--- CSS while handling the Folders..
+** CSS while handling the Folders..
 
 1. You can define css class as className = "Folder" for elements.
     -- In index.css File you can define the Required CSS.
@@ -32,4 +32,29 @@
         You define the all properties with propertyNames as Camelcase: backgroundColor.
         -- also the value has to be inside ".."
         -- comma-seperated properties has to be defined. 
+
+** JS Logic For the App feature-wise:
+    1. Showing Folders and Files.
+        -- The fileObj Received as prop to the functional component has a property --> IsFolder.
+        -- Based on this we either show Folder structure or File Structure. 
+
+    2. OnClick of Floders, Expand feature.
+        -- A state holds the a boolean flag that we set once the user clicks on the Folder Name span.
+
+    3. Adding a New Folder or File.
+        -- We have a added an input field before showing the lists of SubItems.
+        -- This item div visibility, We control using a state that sets onBlur event i.e When the input Field losses Focus, Events gets Trigger.
+        -- To capture the Folder Data, we are using a custom Hook, Which takes original Tree and parent Folder Id and newfolderName and if it's a Folder or not.
+        -- using these we traverse the original tree, recursively and find the parentFolder Id --> Insert the new Folder and come back.
     
+    4. Removing a Folder or File.
+        -- This also implemented in a similar way like how add folder is implemented.
+        NOTE:
+            -- Logic in customHook, 
+                1. first handle what if the NewFolder or folder to be deleted is in the parent level.
+                2. If Nested, use map --> Traverse recursively and modify and return the list.
+
+    Important:
+        -- Inline Styles implemented.
+        -- Custom Hook used.
+        -- Recursive logic using Tree Traversal [DFS] --> For traversing the nested folders structure. 
